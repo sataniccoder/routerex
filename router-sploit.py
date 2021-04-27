@@ -383,13 +383,12 @@ while True:
                         os.system(o)
                         os.system("clear")
                         print("[!] done")
-        if co == 99:
+        if co == 9:
             print("""
 [MAKER] buffkermitisagod
 
 ABOUT:
 this is a python pentesting tool for linux targiting routers
-it is part of my networking project (also on github)
 i will include the details of any tools i use that aren't mine
 and give full credit to them. Enjoy! :)
 
@@ -402,10 +401,6 @@ and give full credit to them. Enjoy! :)
             def process_packet(packet):
                 global e
                 try:
-
-                    """
-                    This function is executed whenever a packet is sniffed
-                    """
                     show_raw = True
                     
                     if packet.haslayer(HTTPRequest):
@@ -449,11 +444,6 @@ and give full credit to them. Enjoy! :)
                                 print("\n")
                                 print(Style.RESET_ALL)
                             else:
-                                pass
-                            if show_raw and packet.haslayer(Raw) and method == "POST":
-                                # if show_raw flag is enabled, has raw data, and the requested method is "POST"
-                                # then show raw
-                                #print(f"\n{RED}[#] Some useful Raw data: {packet[Raw].load}{RESET}")
                                 pass
                 except KeyboardInterrupt:
                     return e
@@ -633,42 +623,4 @@ and give full credit to them. Enjoy! :)
 
 
 
-
-
-if co == 100:
-    buffer_size = 8192
-    HOST = '192.168.0.1' 
-    PORT = 80    
-    print("[#] connecting to router")
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((HOST, PORT))
-
-    u = 'admin'
-    pa = 'sky'
-
-    both = u+":"+pa
-    both = both.encode()
-    pas = base64.b64encode(both)
-    pass_enc = str(pas)
-    pass_enc = pass_enc.replace("b'","")
-    pass_enc = pass_enc.replace("'","")
-    rr = "Authorization: Basic"+pass_enc
-    data = ["GET /sky_router_status.html HTTP/1.1",
-    "Host: 192.168.0.1",
-    "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
-    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language: en-US,en;q=0.5",
-    "Accept-Encoding: gzip, deflate",
-    "Connection: keep-alive",
-    "Upgrade-Insecure-Requests: 1",
-    "DNT: 1",
-    "Sec-GPC: 1",
-    rr]
-    r = '\r\n'.join(data)+'\r\n\r\n'
-    print("[#] sending:\n"+r)
-    s.send(r.encode())
-    print("[#] recv...")
-    r = s.recv(buffer_size)
-    print(r.decode())
-    print("[#] done!")
     
