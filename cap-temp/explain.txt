@@ -1,0 +1,1 @@
+here is where captures are stored and then unessesery files are deleted and the .cap file is moved out of here to the users desired location
