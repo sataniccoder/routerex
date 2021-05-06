@@ -5,8 +5,9 @@ if you have any tips or find any bugs please let me know and if u can help me im
 
 # INSTALL
 
-just run the program and it will check if anything needs to be installed 
-if you need to instal something it will let you know and quit the program (soon will install it for you)
+          python3 install.py 
+this will install all needed programs using apt-get intall it will also add the program to bash so you can run it from
+any where with the command: routerex
 
 # RUN
 
