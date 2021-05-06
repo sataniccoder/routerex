@@ -7,7 +7,9 @@ if you have any tips or find any bugs please let me know and if u can help me im
 
           python3 install.py 
 this will install all needed programs using apt-get intall it will also add the program to bash so you can run it from
-any where with the command: routerex
+any where with the command:
+
+      routerex
 
 # RUN
 
