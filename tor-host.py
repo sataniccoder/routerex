@@ -163,7 +163,7 @@ def stop_torghost():
     print(t() + ' Flushing iptables, resetting to default'),
     os.system('mv /etc/resolv.conf.bak /etc/resolv.conf')
     IpFlush = \
-        """
+        """ 
 	iptables -P INPUT ACCEPT
 	iptables -P FORWARD ACCEPT
 	iptables -P OUTPUT ACCEPT
