@@ -16,5 +16,6 @@ anywhere.
 # RUN
 MAKE SURE THAT YOU ARE IN ROOT WHEN YOU RUN THIS PROGRAM 
 OR IT WON'T WORK PROPERLY 
+Run:
 
           routerex
