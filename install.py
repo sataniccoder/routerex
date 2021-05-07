@@ -1,6 +1,6 @@
 import os
 
-'''
+#'''
 apt = ["hostapd","aircrack-ng","systemctl","tor","wdget"]
 for x in apt:
     command = "apt-get install "+x
@@ -24,3 +24,5 @@ f.close()
 os.system("chmod +x /usr/local/bin/routerex")
 print("[#] done!")
 print("[#] custome command: routerex")
+print("[#] if u move this file the custome command won't work")
+print("[#] if u do move it run install.py again")
