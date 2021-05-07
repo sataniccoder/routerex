@@ -9,7 +9,6 @@ def up():
     |_|    |                            |  _
      _     | Cheaking installed moduled | |_|
     |_|    |____________________________|
-
     """)
 def down():
     print("""     
@@ -19,7 +18,6 @@ def down():
            |                            | |_|
     |_|    | Cheaking installed moduled |  _
            |____________________________| |_|
-
     """)
 
 print("booting...")
@@ -28,7 +26,7 @@ try:
     from colorama import Fore, Back, Style
 except ModuleNotFoundError:
     print("[!] installing colorama")
-    os,system("pip3 install colorama")
+    os.system("pip3 install colorama")
 
 os.system("clear")
 down()
@@ -38,21 +36,21 @@ try:
     import urllib.parse
 except ModuleNotFoundError:
     print("[!] installing urllib")
-    os,system("pip3 install urllib")
+    os.system("pip3 install urllib")
 os.system("clear")
 up()
 try:
     from scapy.all import *
 except ModuleNotFoundError:
     print("[!] installing scapy")
-    os,system("pip3 install scApy")
+    os.system("pip3 install scApy")
 os.system("clear")
 down()
 try:
     import paramiko
 except ModuleNotFoundError:
     print("[!] installing paramiko")
-    os,system("ip3 install paramiko")
+    os.system("ip3 install paramiko")
 os.system("clear")
 up()
 
@@ -60,7 +58,7 @@ try:
     from parsel import Selector
 except ModuleNotFoundError:
     print("[!] you need to install parsel")
-    os,system("pip3 install parsel")
+    os.system("pip3 install parsel")
 os.system("clear")
 down()
 
@@ -135,7 +133,6 @@ while True:
 | """+ Fore.GREEN + """10"""+Fore.RED + """  | """+ Fore.YELLOW + """about"""+Fore.RED + """                                  |
 | """+ Fore.GREEN + """11"""+Fore.RED + """  | """+ Fore.YELLOW + """pass all traffic through tor """+Fore.RED + """           |
 ------------------------------------------------
-
         """)
         print(Style.RESET_ALL)
         co = int(input("----> "))
@@ -219,8 +216,6 @@ while True:
 ----------------------------
 | 9/10 | paramiko          |
 ----------------------------
-
-
             """)
             def _brute_():
                 global host,user,wordlist;
@@ -283,7 +278,6 @@ while True:
             wpa_crack()
         if co == 3:
             print(Fore.RED + """
-
 """+ Fore.RED +"""
 -----------------------------
 |"""+Fore.WHITE+"""       kick them out"""+ Fore.RED +"""       |
@@ -491,13 +485,11 @@ while True:
         if co == 10:
             print("""
 [MAKER] buffkermitisagod
-
 ABOUT:
 this is a python pentesting tool for linux targiting routers
 it is part of my networking project (also on github)
 i will include the details of any tools i use that aren't mine
 and give full credit to them. Enjoy! :)
-
             """)
             input("[ENTER] press enter to continue ")
 
@@ -791,13 +783,3 @@ and give full credit to them. Enjoy! :)
             subprocess.run("clear", shell=True)
             quit()
         subprocess.run("clear", shell=True)
-
-
-
-
-
-
-
-
-
-
