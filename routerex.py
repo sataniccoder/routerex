@@ -20,13 +20,13 @@ def down():
            |____________________________| |_|
     """)
 
-print("booting...")
 up()
 try:
     from colorama import Fore, Back, Style
 except ModuleNotFoundError:
     print("[!] installing colorama")
     os.system("pip3 install colorama")
+    os.system("pip install colorama")
 
 os.system("clear")
 down()
@@ -37,28 +37,32 @@ try:
 except ModuleNotFoundError:
     print("[!] installing urllib")
     os.system("pip3 install urllib")
+    os.system("pip install urllib")
 os.system("clear")
 up()
 try:
     from scapy.all import *
 except ModuleNotFoundError:
     print("[!] installing scapy")
-    os.system("pip3 install scApy")
+    os.system("pip3 install scapy")
+    os.system("pip install scapy")
 os.system("clear")
 down()
 try:
     import paramiko
 except ModuleNotFoundError:
     print("[!] installing paramiko")
-    os.system("ip3 install paramiko")
+    os.system("pip3 install paramiko")
+    os.system("pip install paramiko")
 os.system("clear")
 up()
 
 try:
     from parsel import Selector
 except ModuleNotFoundError:
-    print("[!] you need to install parsel")
+    print("[!] installing parsel")
     os.system("pip3 install parsel")
+    os.system("pip install parsel")
 os.system("clear")
 down()
 
@@ -74,7 +78,12 @@ up()
 import socket
 os.system("clear")
 down()
-import requests
+try:
+    import requests
+except ModuleNotFoundError:
+    print("[!] installing requests")
+    os.system("pip3 install requests")
+    os.system("pip install requests")
 os.system("clear")
 up()
 import sys
